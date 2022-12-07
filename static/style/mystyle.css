@@ -1,0 +1,121 @@
+* {
+    font-family: sans-serif;
+}
+
+/*
+#bodybg{
+    background-image: url(../indexbg/fondo-medico-abstracto-iconos-simbolos-planos-diseno-plantillas-concepto-e-idea-tecnologia-sanitaria-medicina-innovacion-salud-ciencia-e-investigacion_120542-692.webp);
+    background-repeat: no-repeat;
+}
+*/
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+#table {
+    border-radius: 1em;
+    overflow: hidden;
+}
+
+#thead {
+    background-color: #3b83f0 !important;
+    color: white;
+    box-shadow: 0px 2px 20px #104990;
+}
+
+#tbody {
+    font-weight: bold;
+}
+
+nav {
+    box-shadow: 0px 6px 20px #104990;
+}
+
+.fw-bold {
+    color: white;
+    font-weight: bold;
+    letter-spacing: 4px;
+}
+
+.fw-bold:hover {
+    transform: scale(1.1);
+    color: #00ff2a;
+    transition: all .4s;
+}
+
+
+#text {
+    font-family: 'Patua One', cursive;
+    color: #104990;
+    letter-spacing: 3px;
+    font-size: 50px;
+    font-weight: bolder;
+}
+
+#texto {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+li {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+}
+
+span {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+}
+
+#boton {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #d68759;
+    border-radius: 20px;
+}
+
+#inpbuscar:valid {
+    background-color: white;
+}
+
+#inpbuscar,
+#inpbuscar:invalid {
+    border-color: rgb(241, 138, 138);
+}
+
+#boton:hover {
+    background-color: rgb(250, 0, 187);
+    box-shadow: 5px 5px 5px rgb(206, 200, 200);
+}
+
+#expe {
+    font-family: 'Montserrat', sans-serif;
+    border-color: #104990;
+}
+
+#expe:hover {
+    transform: scale(1.1);
+    color: #104990;
+}
+
+#botoninicio {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #104990;
+    border-radius: 20px;
+    color: white;
+}
+
+#botoninicio:hover {
+    background-color: #21eccabb;
+    box-shadow: 5px 5px 5px rgb(58, 1, 189);
+}
+
+#btnbuscar {
+    letter-spacing: 2px !important;
+}
+
+#btnbuscar:hover {
+    border-color: transparent;
+    background-color: #5249d4;
+    box-shadow: 5px 5px 5px rgb(58, 1, 189);
+}

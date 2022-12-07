@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% include "header.html" %}
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="bg-image" style="background-image: url('../static/indexbg/fondolargocolor.webp'); height: 100vh;">
+        {% include "navBarRecep.html" %}
+        <div class="container mt-5 ">
+            <form action="{% url 'bcp' %}" method="get">
+                <div class="d-flex justify-content-center mt-3 row">
+
+                    <h2 class="text-center col-sm "> Buscar Paciente*:</h2>
+                    <input type="text" placeholder="Escriba Rut" name="buscar"
+                        class="text-center form-control col-sm rounded-pill me-5" id="inpbuscar" maxlength="10"
+                        minlength="9" pattern="\d{3,8}-[\d|kK]{1}" title="Debe ser un Rut válido ej: 11111111-1">
+                    <button type="submit" id="btnbuscar"
+                        class="col-sm-2 rounded-pill btn btn-primary fw-bold ms-5 btn-sm p-0"><i
+                            class="bi bi-search"></i> Buscar</button>
+
+                </div>
+            </form>
+            {% if pacientes %}
+            <div class="container mt-5">
+
+                <table class="table table-hover text-center table-striped" id="table">
+                    <thead>
+                        <tr class="ms-3" id="thead">
+                            <th>Rut</th>
+                            <th>Nombre</th>
+                            <th>Apellido Paterno</th>
+                            <th>Apellido Materno</th>
+                            <th>Telefono</th>
+                            <th>Direccion</th>
+                            <th>Sexo</th>
+                            <th>Prevision</th>
+                            <th>Fecha Nacimiento</th>
+                        </tr>
+                    </thead>
+                    <tbody class="table-group-divider" id="tbody">
+                        <tr>
+                            {% for p in pacientes %}
+                            <td>{{p.rut}}</td>
+                            <td>{{p.nombre}}</td>
+                            <td>{{p.apellido_paterno}}</td>
+                            <td>{{p.apellido_materno}}</td>
+                            <td>{{p.telefono}}</td>
+                            <td>{{p.direccion}}</td>
+                            <td>{{p.sexo}}</td>
+                            <td>{{p.prevision}}</td>
+                            <td>{{p.fecha_nacimiento}}</td>
+                            {% endfor %}
+                        </tr>
+
+
+                    </tbody>
+                </table>
+                {% else %}
+                <h3 class="text-center mt-5">*Haga una busqueda con el rut por ejemplo <strong>11111111-1</strong></h3>
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
