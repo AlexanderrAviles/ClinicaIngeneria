@@ -1,18 +1,18 @@
 {% load static %}
 <link rel="stylesheet" href="{% static " style/mystyle.css" %}" />
 <header>
-    <nav class="navbar navbar-expand-md navbar-dark bg-primary p-3 d-block justify-content-center">
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary p-3 d-flex justify-content-center">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse justify-content-md-center" id="navbarNavDropdown">
-                <ul class="navbar-nav  my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+            <div class="collapse navbar-collapse d-flex justify-content-center ms-5" id="navbarNavDropdown">
+                <ul class="navbar-nav  my-2 my-lg-0 navbar-nav-scroll ms-5" style="--bs-scroll-height: 100px;">
 
-                    <li class="nav-item">
-                        <a class="nav-link px-4 mt-2 me-2 fs-6 fw-bold " href="{% url 'index'%}">INICIO</a>
+                    <li class="nav-item ">
+                        <a class="nav-link px-4 mt-2 fs-6 fw-bold " href="{% url 'index'%}">INICIO</a>
                     </li>
 
                     <li class="nav-item dropdown">
@@ -36,9 +36,9 @@
                             id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">PACIENTES</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                            <li><a class="dropdown-item" href="{% url 'lp' %}">Lista Pacientes</a></li>
+                            <li><a class="dropdown-item" href="{% url 'ap'%}">Agregar Paciente</a></li>
                             <li><a class="dropdown-item" href="{% url 'bcp'%}">Buscar Paciente</a></li>
-                            <li><a class="dropdown-item" href="#">Modificar Paciente</a></li>
-                            <li><a class="dropdown-item" href="#">Algo más aquí</a></li>
                         </ul>
                     </li>
 

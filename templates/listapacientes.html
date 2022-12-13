@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% include "header.html" %}
+    <title>Pacientes · Clinica</title>
+</head>
+
+<body>
+    <div class="bg-image" style="background-image: url('../static/indexbg/fondolargocolor.webp'); height: 100vh;">
+        {% include "navBarRecep.html" %}
+        <div class="container mt-5">
+            <h1 class="text-center mb-4">Lista Pacientes </h1>
+
+            <table class="table table-hover text-center table-striped" id="table">
+                <thead>
+                    <tr class="ms-2" id="thead">
+                        <th>Rut</th>
+                        <th>Nombre</th>
+                        <th>Apellido Paterno</th>
+                        <th>Apellido Materno</th>
+                        <th>Telefono</th>
+                        <th>Direccion</th>
+                        <th>Sexo</th>
+                        <th>Prevision</th>
+                        <th>Fecha Nacimiento</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider" id="tbody">
+                    {% for p in paciente %}
+                    <tr>
+                        <td class="mx-2">{{p.rut}}</td>
+                        <td class="px-0">{{p.nombre}}</td>
+                        <td class="px-0">{{p.apellido_paterno}}</td>
+                        <td class="px-0">{{p.apellido_materno}}</td>
+                        <td class="px-0">{{p.telefono}}</td>
+                        <td class="px-0">{{p.direccion}}</td>
+                        <td class="px-0">{{p.sexo.nombre}}</td>
+                        <td class="px-0">{{p.prevision.nombre}}</td>
+                        <td class="px-0">{{p.fecha_nacimiento}}</td>
+                        <td class="px-0"><a href="{% url 'pexp' p.id %}" class="btn btn-success btn-sm mx-1" id="btnmodify">
+                                <i class="bi bi-pencil-square"></i> Modificar</a>
+                            <a href="{% url 'delete' p.id %}" class="btn btn-danger btn-sm mx-1" id="btndelete">
+                                <i class="bi bi-trash3-fill"></i> Eliminar</a></td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

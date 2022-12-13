@@ -39,6 +39,12 @@ class Expediente(models.Model):
     so2 = models.IntegerField()
     presion_arterial = models.IntegerField()
     descripcion_dolor = models.TextField(max_length=600)
+    
+class Prevision(models.Model):
+    nombre = models.CharField(max_length=15)
+    
+class Genero(models.Model):
+    nombre =  models.CharField(max_length=15)
 
 
 class Paciente(models.Model):
@@ -47,10 +53,10 @@ class Paciente(models.Model):
     apellido_materno = models.CharField(max_length=30)
     rut = models.CharField(max_length=10)
     fecha_nacimiento = models.DateField()
-    sexo = models.CharField(max_length=10)
+    sexo = models.ForeignKey(Genero, on_delete= models.CASCADE)
     telefono = models.CharField(max_length=45)
     direccion = models.CharField(max_length=45)
-    prevision = models.CharField(max_length=45)
+    prevision = models.ForeignKey(Prevision, on_delete = models.CASCADE)
     diagnostico_medico = models.TextField(max_length=600)
     indicacion_medica = models.TextField(max_length=600)
     examenes = models.TextField(max_length=600,null=True)

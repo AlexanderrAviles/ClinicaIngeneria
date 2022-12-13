@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% include 'header.html' %}
+  <title>Modificar Paciente · Clinica</title>
+</head>
+
+<body>
+  <div class="bg-image" style="background-image: url('../static/indexbg/fondolargocolor.webp'); height: 100vh;">
+    {% include 'navBarRecep.html' %}
+    <div class="container">
+      <div class="col-12 ms-sm-auto ">
+        <div class="d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 my-3 border-bottom ">
+          <h1 class="h2">Modificar Datos - Paciente {{paciente.rut}}</h1>
+        </div>
+        <div>
+          <form action="/buscarpaciente/{{paciente.id}}" class="mx-5" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row col-md-4 offset-md-3 text-center">
+              <input type="text" class="form-control" value="{{paciente.rut}}" name="rut" readonly hidden/>
+            </div>
+            <div class="row col-md-6 offset-md-3 text-center">
+              <label class="fw-bolder"> Nombre: </label>
+              <input type="text" class="form-control" value="{{paciente.nombre}}" name="nombre" required />
+            </div>
+            <div class="row col-md-6 offset-md-3 text-center">
+              <label class="fw-bolder"> Apellido Paterno:</label>
+              <input type="text" class="form-control" value="{{paciente.apellido_paterno}}" name="apellidoP" required />
+            </div>
+
+            <div class="row col-md-6 offset-md-3 text-center">
+              <label class="fw-bolder"> Apellido Materno:</label>
+              <input type="text" class="form-control" value="{{paciente.apellido_materno}}" name="apellidoM" required />
+            </div>
+            <div class="row col-md-6 offset-md-3 text-center">
+              <label class="fw-bolder"> Telefono:</label>
+              <input type="number" class="form-control" value="{{paciente.telefono}}" name="telefono" required />
+            </div>
+            <div class="row col-md-6 offset-md-3 text-center">
+              <label class="fw-bolder"> Direccion:</label>
+              <input type="text" class="form-control" value="{{paciente.direccion}}" name="direccion" required />
+            </div>
+            <div class="row col-md-6 offset-md-3 text-center">
+              <label class="fw-bolder">Sexo:</label>
+              <select class="form-select" name="genero">
+                <option value="{{paciente.sexo.id}}">{{paciente.sexo.nombre}}</option>
+                {% for g in genero %}
+                <option value="{{g.id}}">{{g.nombre}}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="row col-md-6 offset-md-3 text-center">
+              <label class="fw-bolder">Prevision:</label>
+              <select class="form-select" name="prevision">
+                <option value="{{paciente.prevision.id}}">{{paciente.prevision.nombre}}</option>
+                {% for p in prevision %}
+                <option value="{{p.id}}">{{p.nombre}}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="row col-md-6 offset-md-3 text-center">
+              <label class="fw-bolder"> Fecha Nacimiento:</label>
+              <input type="date" class="form-control" value="{{paciente.fecha_nacimiento|date:'Y-m-d'}" name="fechaNac"
+                required />
+            </div>
+            <div class="row col-md-2 offset-md-5 mt-4">
+              <button type="submit" class="btn btn-success">Guardar</button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

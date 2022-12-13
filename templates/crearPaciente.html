@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% include "header.html" %}
+    <title>Crear Paciente · Clinica</title>
+</head>
+
+<body>
+    <div class="bg-image" style="background-image: url('../static/indexbg/fondolargocolor.webp'); height: 100vh;">
+        {% include "navBarRecep.html" %}
+        <div class="container">
+            <div class="col-md-12 ms-sm-auto px-md-4">
+                <div
+                    class="d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="text-center">Crear Paciente</h1>
+                </div>
+                <div>
+                    <form action="#" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row col-md-6 offset-md-3 text-center">
+                            <label>Rut</label>
+                            <input type="text" class="form-control" name="rut" maxlength="10" minlength="9"
+                                pattern="\d{3,8}-[\d|kK]{1}" title="Debe ser un Rut válido ej: 11111111-1" required />
+                        </div>
+                        <div class="row col-md-6 offset-md-3 text-center">
+                            <label>Nombre Paciente</label>
+                            <input type="text" class="form-control" name="nombre" required />
+                        </div>
+                        <div class="row col-md-6 offset-md-3 text-center">
+                            <label>Apellido Paterno</label>
+                            <input type="text" class="form-control" name="apellidoP" required />
+                        </div>
+                        <div class="row col-md-6 offset-md-3 text-center">
+                            <label>Apellido Materno</label>
+                            <input type="text" class="form-control" name="apellidoM" required />
+                        </div>
+                        <div class="row col-md-6 offset-md-3 text-center">
+                            <label>Fecha Nacimiento</label>
+                            <input type="date" class="form-control" name="fechaNac" required />
+                        </div>
+                        <div class="row col-md-6 offset-md-3 text-center">
+                            <label>Sexo</label>
+                            <select class="form-select" name="genero">
+                                <option value="-1">NO SELECCIONADO</option>
+                                {% for g in genero %}
+                                <option value="{{g.id}}">{{g.nombre}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="row col-md-6 offset-md-3 text-center">
+                            <label>Direccion</label>
+                            <input type="text" class="form-control" name="direccion" required />
+                        </div>
+                        <div class="row col-md-6 offset-md-3 text-center">
+                            <label>Telefono</label>
+                            <input type="number" inputmode="numeric" placeholder="Sin Codigo (+56)" class="form-control" name="telefono" maxlength="9" minlength="8" pattern="[0-9]*" required />
+                        </div>
+                        <div class="row col-md-6 offset-md-3 text-center">
+                            <label>Prevision</label>
+                            <select class="form-select" name="prevision">
+                                <option value="-1">NO SELECCIONADO</option>
+                                {% for p in prevision %}
+                                <option value="{{p.id}}">{{p.nombre}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="row col-md-2 offset-md-5 mt-4">
+                            <button type="submit" class="btn btn-success">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

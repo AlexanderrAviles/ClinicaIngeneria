@@ -8,6 +8,11 @@
     background-repeat: no-repeat;
 }
 */
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
 h2 {
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
@@ -100,9 +105,30 @@ span {
 
 #botoninicio {
     font-family: 'Montserrat', sans-serif;
+    letter-spacing: 2px !important;
     background-color: #104990;
     border-radius: 20px;
     color: white;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    appearance: none;
+    margin: 0;
+}
+
+#btnmodify {
+    border-radius: 10px;
+    font-weight: bold;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#btndelete {
+    border-radius: 10px;
+    font-weight: bold;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 #botoninicio:hover {

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% include "header.html" %}
-    <title>Document</title>
+    <title>Buscar Paciente · Clinica</title>
 </head>
 
 <body>
@@ -41,6 +41,7 @@
                             <th>Sexo</th>
                             <th>Prevision</th>
                             <th>Fecha Nacimiento</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody class="table-group-divider" id="tbody">
@@ -52,10 +53,13 @@
                             <td>{{p.apellido_materno}}</td>
                             <td>{{p.telefono}}</td>
                             <td>{{p.direccion}}</td>
-                            <td>{{p.sexo}}</td>
-                            <td>{{p.prevision}}</td>
+                            <td>{{p.sexo.nombre}}</td>
+                            <td>{{p.prevision.nombre}}</td>
                             <td>{{p.fecha_nacimiento}}</td>
-                            {% endfor %}
+                            <td><a href="{% url 'pexp' p.id %}" class="btn btn-success btn-sm mx-1">Modificar</a>
+                                <a href="{% url 'delete' p.id %}" class="btn btn-danger btn-sm mx-1"
+                                    name="cargar">Eliminar</a>
+                                {% endfor %}
                         </tr>
 
 
