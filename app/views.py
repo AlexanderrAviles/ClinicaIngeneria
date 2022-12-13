@@ -68,6 +68,9 @@ def eliminarPaciente(request, id):
 
     return redirect("lp")
 
+def cita(request):
+    return render(request,"citas.html")
+
 # Menus Kinesiologo
 
 

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% include "header.html" %}
+    <title>Citas · Clinica</title>
+</head>
+
+<body>
+    <div class="bg-image" style="background-image: url('../static/indexbg/fondolargocolor.webp'); height: 100vh;">
+        {% include "navBarRecep.html" %}
+        <div class="container">
+            <div
+                class="d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="text-center">Agendar Cita</h1>
+            </div>
+            <div>
+                <form action="#" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="row col-md-6 offset-md-3 my-3  text-center">
+                        <label>Rut Paciente</label>
+                        <input type="text" class="form-control" list="Rut">
+                        <datalist id="Rut">
+                            <option value="Rut Nombre Paciente 1">
+                            <option value="Rut Nombre Paciente 2">
+                        </datalist>
+                    </div>
+                    <div class="row col-md-6 offset-md-3 mb-3 text-center">
+                        <label>Kinesiologo</label>
+                        <select class="form-select" name="genero">
+                            <option value="-1">NO SELECCIONADO</option>
+                            <option value="1">Kinesiologo 1</option>
+                            <option value="1">Kinesiologo 2</option>
+                        </select>
+                    </div>
+                    <div class="row col-md-6 offset-md-3 mb-3 text-center">
+                        <label>Fecha Cita</label>
+                        <input type="date" class="form-control" required />
+                    </div>
+                    <div class="row col-md-6 offset-md-3 mb-3 text-center">
+                        <label>Hora Cita</label>
+                        <input type="time" class="form-control" required />
+                    </div>
+                    <div class="row col-md-2 offset-md-5 mt-4">
+                        <button type="submit" class="btn btn-success">Agendar Hora</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
